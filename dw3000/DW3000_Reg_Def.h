@@ -1,0 +1,452 @@
+/************ HIEU **********/
+/*Fast Commands*/
+#define CMD_TXRXOFF 0x0u
+#define CMD_TX 0x1u
+#define CMD_RX 0x2u
+#define CMD_DTX 0x3u
+#define CMD_DRX 0x4u
+#define CMD_DTX_TS 0x5u
+#define CMD_DRX_TS 0x6u
+#define CMD_DTX_RS 0x7u
+#define CMD_DRX_RS 0x8u
+#define CMD_DTX_REF 0x9u
+#define CMD_DRX_REF 0xAu
+#define CMD_CCA_TX 0xBu
+#define CMD_TX_W4R 0xCu
+#define CMD_DTX_W4R 0xDu
+#define CMD_DTX_TS_W4R 0xEu
+#define CMD_DTX_RS_W4R 0xFu
+#define CMD_DTX_REF_W4R 0x10u
+#define CMD_CCA_TX_W4R 0x11u
+#define CMD_CLR_IRQS 0x12u
+#define CMD_DB_TOGGLE 0x13u
+
+/*Registers*/
+#define GEN_CFG_AES_00 0x00u
+#define GEN_CFG_AES_01 0x01u
+#define STS_CFG 0x02u
+#define RX_TUNE 0x03u
+#define EXT_SYNC 0x04u
+#define GPIO_CTRL 0x05u
+#define DRX 0x06u
+#define RF_CONF 0x07u
+#define RF_CAL 0x08u
+#define FS_CTRL 0x09u
+#define AON 0x0Au
+#define OTP_IF 0x0Bu
+#define CIA_0C 0x0Cu
+#define CIA_0D 0x0Du
+#define CIA_0E 0x0Eu
+#define DIG_DIAG 0x0Fu
+#define PMSC 0x11u
+#define RX_BUFFER_0 0x12u
+#define RX_BUFFER_1 0x13u
+#define TX_BUFFER 0x14u
+#define ACC_MEM 0x15u
+#define SCRATCH_RAM 0x16u
+#define AES_RAM 0x17u
+#define SET1_2 0x18u
+#define INDIRECT_PTR_A 0x1Du
+#define INDIRECT_PTR_B 0x1Eu
+#define IN_PTR_CFG 0x1Fu
+
+/*GEN_CFG_AES*/
+#define DEV_ID 0x00u
+#define EUI_64 0x04u
+#define PANADR 0x0Cu
+#define SYS_CFG 0x10u
+#define FF_CFG 0x14u
+#define SPI_RD_CRC 0x18u
+#define SYS_TIME 0x1Cu
+#define TX_FCTRL 0x24u
+#define DX_TIME 0x2Cu
+#define DREF_TIME 0x30u
+#define RX_FWTO 0x34u
+#define SYS_CTRL 0x38u
+#define SYS_ENABLE 0x3Cu
+#define SYS_STATUS 0x44u
+#define RX_FINFO 0x4Cu
+#define RX_TIME 0x64u
+#define TX_TIME 0x74u
+#define TX_RAWST 0x00u
+#define TX_ANTD 0x04u
+#define ACK_RESP_T 0x08u
+#define TX_POWER 0x0Cu
+#define CHAN_CTRL 0x14u
+#define LE_PEND_01 0x18u
+#define LE_PEND_23 0x1Cu
+#define SPI_COLLISION 0x20u
+#define RDB_STATUS 0x24u
+#define RDB_DIAG 0x28u
+#define AES_CFG 0x30u
+#define AES_IV0 0x34u
+#define AES_IV1 0x38u
+#define AES_IV2 0x3Cu
+#define AES_IV3 0x40u
+#define AES_IV4 0x42u
+#define DMA_CFG 0x44u
+#define AES_START 0x4Cu
+#define AES_STS 0x50u
+#define AES_KEY 0x54u
+
+/*GEN_CFG_AES_LEN*/
+#define DEV_ID_LEN 4u
+#define EUI_64_LEN 8u
+#define PANADR_LEN 4u
+#define SYS_CFG_LEN 4u
+#define FF_CFG_LEN 2u
+#define SPI_RD_CRC_LEN 1u
+#define SYS_TIME_LEN 4u
+#define TX_FCTRL_LEN 6u
+#define DX_TIME_LEN 4u
+#define DREF_TIME_LEN 4u
+#define RX_FWTO_LEN 3u
+#define SYS_CTRL_LEN 1u
+#define SYS_ENABLE_LEN 6u
+#define SYS_STATUS_LEN 6u
+#define RX_FINFO_LEN 4u
+#define RX_TIME_LEN 14u
+#define TX_TIME_LEN 5u
+#define TX_RAWST_LEN 4u
+#define TX_ANTD_LEN 2u
+#define ACK_RESP_T_LEN 4u
+#define TX_POWER_LEN 4u
+#define CHAN_CTRL_LEN 2u
+#define LE_PEND_01_LEN 4u
+#define LE_PEND_23_LEN 4u
+#define SPI_COLLISION_LEN 1u
+#define RDB_STATUS_LEN 1u
+#define RDB_DIAG_LEN 1u
+#define AES_CFG_LEN 2u
+#define AES_IV0_LEN 4u
+#define AES_IV1_LEN 4u
+#define AES_IV2_LEN 2u
+#define AES_IV3_LEN 2u
+#define AES_IV4_LEN 2u
+#define DMA_CFG_LEN 8u
+#define AES_START_LEN 1u
+#define AES_STS_LEN 4u
+#define AES_KEY_LEN 14u
+
+
+/* STS_CFG */
+#define STS_CFG 0x00u
+#define STS_CTRL 0x04u
+#define STS_STS 0x08u
+#define STS_KEY 0x0Cu
+#define STS_IV 0x1Cu
+
+/* STS_CFG_LEN */
+#define STS_CFG_LEN 2u
+#define STS_CTRL_LEN 1u
+#define STS_STS_LEN 2u
+#define STS_KEY_LEN 14u
+#define STS_IV_LEN 14u
+
+/* RX_TUNE */
+#define DGC_CFG0 0x1Cu
+#define DGC_CFG1 0x20u
+#define DGC_LUT_0 0x38u
+#define DGC_LUT_1 0x3Cu
+#define DGC_LUT_2 0x40u
+#define DGC_LUT_3 0x44u
+#define DGC_LUT_4 0x48u
+#define DGC_LUT_5 0x4Cu
+#define DGC_LUT_6 0x50u
+
+/* RX_TUNE_LEN */
+#define RX_TUNE_LEN 4u
+
+/* EXT_SYNC */
+#define EC_CTRL 0x00u
+#define RX_CAL 0x0Cu
+#define RX_CAL_RESI 0x14u
+#define RX_CAL_RESQ 0x1Cu
+#define RX_CAL_STS 0x20u
+
+/* EXT_SYNC_LEN */
+#define EC_CTRL_LEN 4u
+#define RX_CAL_LEN 4u
+#define RX_CAL_RESI_LEN 4u
+#define RX_CAL_RESQ_LEN 4u
+#define RX_CAL_STS_LEN 1u
+
+/* GPIO_CTRL */
+#define GPIO_MODE 0x00u
+#define GPIO_PULL_EN 0x04u
+#define GPIO_DIR 0x08u
+#define GPIO_OUT 0x0Cu
+#define GPIO_IRQE 0x10u
+#define GPIO_ISTS 0x14u
+#define GPIO_ISEN 0x18u
+#define GPIO_IMODE 0x1Cu
+#define GPIO_IBES 0x20u
+#define GPIO_ICLR 0x24u
+#define GPIO_IDBE 0x28u
+#define GPIO_RAW 0x2Cu
+
+/* GPIO_CTRL_LEN */
+#define GPIO_MODE_LEN 4u
+#define GPIO_PULL_EN_LEN 2u
+#define GPIO_DIR_LEN 2u
+#define GPIO_OUT_LEN 2u
+#define GPIO_IRQE_LEN 2u
+#define GPIO_ISTS_LEN 2u
+#define GPIO_ISEN_LEN 2u
+#define GPIO_IMODE_LEN 2u
+#define GPIO_IBES_LEN 2u
+#define GPIO_ICLR_LEN 4u
+#define GPIO_IDBE_LEN 4u
+#define GPIO_RAW_LEN 2u
+
+/* DRX */
+#define DTUNE0 0x00u
+#define RX_SFD_TOC 0x02u
+#define PRE_TOC 0x04u
+#define DTUNE3 0x0Cu
+#define DTUNE_5 0x14u
+#define DRX_CAR_INT 0x29u
+
+/* DRX_LEN */
+#define DTUNE0_LEN 2u
+#define RX_SFD_TOC_LEN 2u
+#define PRE_TOC_LEN 2u
+#define DTUNE3_LEN 4u
+#define DTUNE_5_LEN 4u
+#define DRX_CAR_INT_LEN 3u
+
+
+/* RF_CONF */
+#define RF_ENABLE 0x00u
+#define RF_CTRL_MASK 0x04u
+#define RF_SWITCH 0x14u
+#define RF_TX_CTRL_1 0x1Au
+#define RF_TX_CTRL_2 0x1Cu
+#define TX_TEST 0x28u
+#define SAR_TEST 0x34u
+#define LDO_TUNE 0x40u
+#define LDO_CTRL 0x48u
+#define LDO_RLOAD 0x51u
+
+/* RF_CONF_LEN */
+#define RF_ENABLE_LEN 4u
+#define RF_CTRL_MASK_LEN 4u
+#define RF_SWITCH_LEN 4u
+#define RF_TX_CTRL_1_LEN 1u
+#define RF_TX_CTRL_2_LEN 4u
+#define TX_TEST_LEN 1u
+#define SAR_TEST_LEN 1u
+#define LDO_TUNE_LEN 8u
+#define LDO_CTRL_LEN 4u
+#define LDO_RLOAD_LEN 1u
+
+/* RF_CAL */
+#define SAR_CTRL 0x00u
+#define SAR_STATUS 0x04u
+#define SAR_READING 0x08u
+#define SAR_WAKE_RD 0x0Cu
+#define PGC_CTRL 0x10u
+#define PGC_STATUS 0x14u
+#define PG_TEST 0x18u
+#define PG_CAL_TARGET 0x1Cu
+
+/* RF_CAL_LEN */
+#define SAR_CTRL_LEN 1u
+#define SAR_STATUS_LEN 1u
+#define SAR_READING_LEN 3u
+#define SAR_WAKE_RD_LEN 2u
+#define PGC_CTRL_LEN 2u
+#define PGC_STATUS_LEN 2u
+#define PG_TEST_LEN 2u
+#define PG_CAL_TARGET_LEN 2u
+
+/* FS_CTRL */
+#define PLL_CFG 0x00u
+#define PLL_CC 0x04u
+#define PLL_CAL 0x08u
+#define XTAL 0x14u
+
+/* FS_CTRL_LEN */
+#define PLL_CFG_LEN 2u
+#define PLL_CC_LEN 1u
+#define PLL_CAL_LEN 2u
+#define XTAL_LEN 1u
+
+/* AON */
+#define AON_DIG_CFG 0x00u
+#define AON_CTRL 0x04u
+#define AON_RDATA 0x08u
+#define AON_ADDR 0x0Cu
+#define AON_WDATA 0x10u
+#define AON_CFG 0x14u
+
+/* AON_LEN */
+#define AON_DIG_CFG_LEN 3u
+#define AON_CTRL_LEN 1u
+#define AON_RDATA_LEN 1u
+#define AON_ADDR_LEN 2u
+#define AON_WDATA_LEN 1u
+#define AON_CFG_LEN 1u
+
+/* OTP_IF */
+#define OTP_WDATA 0x00u
+#define OTP_ADDR 0x04u
+#define OTP_CFG 0x08u
+#define OTP_STAT 0x0Cu
+#define OTP_RDATA 0x10u
+#define OTP_SRDATA 0x14u
+
+/* OTP_IF_LEN */
+#define OTP_WDATA_LEN 4u
+#define OTP_ADDR_LEN 2u
+#define OTP_CFG_LEN 2u
+#define OTP_STAT_LEN 1u
+#define OTP_RDATA_LEN 4u
+#define OTP_SRDATA_LEN 4u
+
+/* CIA_0C */
+#define IP_TS 0x00u
+#define STS_TS 0x08u
+#define STS1_TS 0x10u
+#define TDOA 0x18u
+#define PDOA 0x1Eu
+#define CIA_DIAG_0 0x20u
+#define CIA_DIAG_1 0x24u
+#define IP_DIAG_0 0x28u
+#define IP_DIAG_1 0x2Cu
+#define IP_DIAG_2 0x30u
+#define IP_DIAG_3 0x34u
+#define IP_DIAG_4 0x38u
+#define IP_DIAG_8 0x48u
+#define IP_DIAG_12 0x58u
+#define STS_DIAG_0 0x5Cu
+#define STS_DIAG_1 0x60u
+#define STS_DIAG_2 0x64u
+#define STS_DIAG_3 0x68u
+#define STS_DIAG_4 0x00u
+#define STS_DIAG_8 0x10u
+#define STS_DIAG_12 0x20u
+#define STS1_DIAG_0 0x38u
+#define STS1_DIAG_1 0x3Cu
+#define STS1_DIAG_2 0x40u
+#define STS1_DIAG_3 0x44u
+#define STS1_DIAG_4 0x48u
+#define STS1_DIAG_8 0x58u
+#define STS1_DIAG_12 0x68u
+#define CIA_CONF 0x00u
+#define FP_CONF 0x04u
+#define IP_CONF 0x0Cu
+#define STS_CONF_0 0x12u
+#define STS_CONF_1 0x16u
+#define CIA_ADJUST 0x1Au
+
+/* CIA_0C_LEN */
+#define IP_TS_LEN 8u
+#define STS_TS_LEN 8u
+#define STS1_TS_LEN 8u
+#define TDOA_LEN 6u
+#define PDOA_LEN 2u
+#define CIA_DIAG_0_LEN 4u
+#define CIA_DIAG_1_LEN 4u
+#define IP_DIAG_0_LEN 4u
+#define IP_DIAG_1_LEN 4u
+#define IP_DIAG_2_LEN 4u
+#define IP_DIAG_3_LEN 4u
+#define IP_DIAG_4_LEN 4u
+#define IP_DIAG_8_LEN 4u
+#define IP_DIAG_12_LEN 4u
+#define STS_DIAG_0_LEN 4u
+#define STS_DIAG_1_LEN 4u
+#define STS_DIAG_2_LEN 4u
+#define STS_DIAG_3_LEN 4u
+#define STS_DIAG_4_LEN 4u
+#define STS_DIAG_8_LEN 4u
+#define STS_DIAG_12_LEN 4u
+#define STS1_DIAG_0_LEN 4u
+#define STS1_DIAG_1_LEN 4u
+#define STS1_DIAG_2_LEN 4u
+#define STS1_DIAG_3_LEN 4u
+#define STS1_DIAG_4_LEN 4u
+#define STS1_DIAG_8_LEN 4u
+#define STS1_DIAG_12_LEN 4u
+#define CIA_CONF_LEN 4u
+#define FP_CONF_LEN 4u
+#define IP_CONF_LEN 4u
+#define STS_CONF_0_LEN 4u
+#define STS_CONF_1_LEN 4u
+#define CIA_ADJUST_LEN 2u
+
+/* DIG_DIAG */
+#define EVC_CTRL 0x00u
+#define EVC_PHE 0x04u
+#define EVC_RSE 0x06u
+#define EVC_FCG 0x08u
+#define EVC_FCE 0x0Au
+#define EVC_FFR 0x0Cu
+#define EVC_OVR 0x0Eu
+#define EVC_STO 0x10u
+#define EVC_PTO 0x12u
+#define EVC_FWTO 0x14u
+#define EVC_TXFS 0x16u
+#define EVC_HPW 0x18u
+#define EVC_SWCE 0x1Au
+#define EVC_RES1 0x1Cu
+#define DIAG_TMC 0x24u
+#define EVC_CPQE 0x28u
+#define EVC_VWARN 0x2Au
+#define SPI_MODE 0x2Cu
+#define SYS_STATE 0x30u
+#define FCMD_STAT 0x3Cu
+#define CTR_DBG 0x48u
+#define SPICRCINIT 0x4Cu
+
+/* PMSC */
+#define SOFT_RST 0x00u
+#define CLK_CTRL 0x04u
+#define SEQ_CTRL 0x08u
+#define TXFSEQ 0x12u
+#define LED_CTRL 0x16u
+#define RX_SNIFF 0x1Au
+#define BIAS_CTRL 0x1Fu
+
+/* RX_BUFFER_0 */
+#define RX_BUFFER_0_OFF 0x00u
+
+/* RX_BUFFER_1 */
+#define RX_BUFFER_1_OFF 0x00u
+
+/* TX_BUFFER */
+#define TX_BUFFER_OFF 0x00u
+
+/* ACC_MEM */
+#define ACC_MEM_OFF 0x00u
+
+/* SCRATCH_RAM */
+#define SCRATCH_RAM_OFF 0x00u
+
+/* AES_RAM */
+#define AES_KEY_1ST 0x00u
+#define AES_KEY_2ND 0x10u
+#define AES_KEY_3RD 0x20u
+#define AES_KEY_4TH 0x30u
+#define AES_KEY_5TH 0x40u
+#define AES_KEY_6TH 0x50u
+#define AES_KEY_7TH 0x60u
+#define AES_KEY_8TH 0x70u
+
+/* SET1_2 */
+
+/* INDIRECT_PTR_A */
+#define INDIRECT_PTR_A_OFF 0x00u
+
+/* INDIRECT_PTR_B */
+#define INDIRECT_PTR_B_OFF 0x00u
+
+/* IN_PTR_CFG */
+#define FINT_STAT 0x00u
+#define PTR_ADDR_A 0x04u
+#define PTR_OFFSET_A 0x08u
+#define PTR_ADDR_B 0x0Cu
+#define PTR_OFFSET_B 0x10u
+
+/************ HIEU **********/
